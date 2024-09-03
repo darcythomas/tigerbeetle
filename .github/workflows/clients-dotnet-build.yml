@@ -80,7 +80,7 @@ jobs:
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ matrix.dotnet }}
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4.1.7
         with:
           name: nuget-artifact
           path: ./nuget
@@ -90,7 +90,7 @@ jobs:
           dotnet nuget add source ../nuget
           dotnet new console
           dotnet add package tigerbeetle-dotnet -s ../nuget
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4.1.7
         with:
           name: test-project-artifact
           path: ./test-project          
@@ -113,11 +113,11 @@ jobs:
           - "3.1-alpine"
     runs-on: ubuntu-latest
     steps:   
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4.1.7
         with:
           name: nuget-artifact
           path: ./nuget          
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4.1.7
         with:
           name: test-project-artifact
           path: ./
