@@ -82,7 +82,7 @@ jobs:
     ## If it's a pull request, the package wasn't uploaded, so we use a local version:
     - name: Restore local package
       if: ${{ github.event_name == 'pull_request' }}
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4.1.7
       with:
         name: jar-artifact
         path: test/
@@ -141,7 +141,7 @@ jobs:
         server-id: github
         settings-path: ${{ github.workspace }}
 
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v4.1.7
       with:
         name: test-artifact
         path: test/
@@ -171,7 +171,7 @@ jobs:
           - amazoncorretto:17
           - amazoncorretto:17-alpine 
     steps:    
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v4.1.7
       with:
         name: test-artifact
         path: ./test
